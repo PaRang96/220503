@@ -27,99 +27,156 @@ int main()
         A[SecondNumber] = Temp;
     }
 
-    char sign;
-    int number;
+    string sign;
+    string number;
+
+    // 플레이어 3장 배열
+    int Player[3] = {};
+    
+    // 봇 3장 배열
+    int AI[3] = {};
 
     // 출력
+
     for (int i = 0; i < MAX; ++i)
     {
         switch (A[i]/13)
         {
         case 0:
-            cout << "♥";
+            sign = "♥";
             switch (A[i]%13)
             {
             case 0:
-                cout << "A" << endl;
+                number = "A";
                 break;
             case 10:
-                cout << "J" << endl;
+                number = "J";
                 break;
             case 11:
-                cout << "Q" << endl;
+                number = "Q";
                 break;
             case 12:
-                cout << "K" << endl;
+                number = "K";
                 break;
             default:
-                cout << A[i] % 13 << endl;
+                number = (A[i] % 13);
                 break;
             }
             break;
         case 1:
-            cout << "♠";
+            sign = "♠";
             switch (A[i] % 13)
             {
             case 0:
-                cout << "A" << endl;
+                number = "A";
                 break;
             case 10:
-                cout << "J" << endl;
+                number = "J";
                 break;
             case 11:
-                cout << "Q" << endl;
+                number = "Q";
                 break;
             case 12:
-                cout << "K" << endl;
+                number = "K";
                 break;
             default:
-                cout << A[i] % 13 << endl;
+                number = (A[i] % 13);
                 break;
             }
             break;
         case 2:
-            cout << "♣";
+            sign =  "♣";
             switch (A[i] % 13)
             {
             case 0:
-                cout << "A" << endl;
+                number = "A";
                 break;
             case 10:
-                cout << "J" << endl;
+                number = "J";
                 break;
             case 11:
-                cout << "Q" << endl;
+                number = "Q";
                 break;
             case 12:
-                cout << "K" << endl;
+                number = "K";
                 break;
             default:
-                cout << A[i] % 13 << endl;
+                number = (A[i] % 13);
                 break;
             }
             break;
         case 3:
-            cout << "◈";
+            sign = "◈";
             switch (A[i] % 13)
             {
             case 0:
-                cout << "A" << endl;
+                number = "A";
                 break;
             case 10:
-                cout << "J" << endl;
+                number = "J";
                 break;
             case 11:
-                cout << "Q" << endl;
+                number = "Q";
                 break;
             case 12:
-                cout << "K" << endl;
+                number = "K";
                 break;
             default:
-                cout << A[i] % 13 << endl;
+                number = (A[i] % 13);
                 break;
             }
             break;
         }
+    }
+
+    // player and ai gets 3 cards randomly
+    for (int i = 0; i < 3; i++)
+    {
+        Player[i] = A[rand() % MAX];
+        AI[i] = A[rand() % MAX];
+    }
+
+    // add player's 3 cards' value
+    int PlayerSum = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        PlayerSum += Player[i] % 13;
+    }
+
+    // add ai's 3 cards' value
+    int AISum = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        AISum += AI[i] % 13;
+    }
+
+
+    // winner decision
+    if (PlayerSum > 21)
+    {
+        cout << "Player Lost: greater than 21" << endl;
+        cout << "Player: " << PlayerSum << endl;
+        return -1;
+    }
+    if (AISum > 21)
+    {
+        cout << "AI Lost: greater than 21" << endl;
+        cout << "AI: " << AISum << endl;
+        return -1;
+    }
+    else if (PlayerSum == AISum)
+    {
+        cout << "Tie: Player - " << PlayerSum << " & AI - " << AISum << endl;
+    }
+    else if (PlayerSum > AISum)
+    {
+        cout << "Winner: Player " << PlayerSum << endl;
+        cout << "AI: " << AISum << endl;
+    }
+    else
+    {
+        cout << "Winner: AI " << AISum << endl;
+        cout << "Player: " << PlayerSum << endl;
     }
 
     return 0;
