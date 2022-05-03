@@ -12,7 +12,7 @@ int main()
     // 생성
     for (int i = 0; i < MAX; ++i)
     {
-        A[i] = i + 1;
+        A[i] = i;
     }
 
     //shuffle
@@ -27,6 +27,7 @@ int main()
         A[SecondNumber] = Temp;
     }
 
+    // 카드 종류
     string sign;
     string number;
 
@@ -149,7 +150,6 @@ int main()
     {
         AISum += AI[i] % 13;
     }
-
 
     // winner decision
     if (PlayerSum > 21)
