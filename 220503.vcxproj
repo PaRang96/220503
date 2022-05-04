@@ -139,7 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aiadd.cpp" />
+    <ClCompile Include="cardvalue.cpp" />
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="draw.cpp" />
+    <ClCompile Include="initialize.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="playeradd.cpp" />
+    <ClCompile Include="shuffle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aiadd.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="draw.h" />
+    <ClInclude Include="initialize.h" />
+    <ClInclude Include="playeradd.h" />
+    <ClInclude Include="shuffle.h" />
+    <ClInclude Include="cardvalue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
